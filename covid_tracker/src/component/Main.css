@@ -12,8 +12,7 @@ body {
 }
 
 a,
-.head,
-.search div {
+.head {
   color: white;
   font-size: medium;
   font-weight: 500;
@@ -34,26 +33,26 @@ nav ul,
 }
 
 nav {
+  margin-top: 1rem;
   width: 100%;
   height: 8vh;
-  /* background-color: yellow; */
   justify-content: space-between;
 }
 
 nav ul {
   width: 30rem;
-
   justify-content: space-evenly;
 }
 
 .head {
-  margin-left: 0.5rem;
+  margin-left: 2rem;
   font-size: larger;
 }
 
 .head span {
   color: rgb(219, 47, 47);
 }
+
 .search input {
   height: 1.6rem;
   margin-right: 0.5rem;
@@ -65,12 +64,58 @@ nav ul {
   width: 5rem;
   border-radius: 0.4rem;
   height: 1.6rem;
-  margin-right: 0.5rem;
   text-align: center;
+  cursor: pointer;
+}
+
+.search {
+  margin-right: 2rem;
 }
 
 .menu {
   display: none;
+}
+
+.center {
+  display: flex;
+  flex-direction: row;
+  margin-top: 6rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  /* background-color: yellow; */
+  justify-content: space-between;
+  height: 21rem;
+}
+
+.info-1 {
+  background-color: rgba(129, 127, 127, 0.253);
+  height: 2.3rem;
+  width: 11rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.info .btn {
+  width: 8rem;
+  height: 2.3rem;
+  padding-top: 0.2rem;
+  margin: 0.4rem;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+}
+
+.img {
+  width: 20rem;
+  height: 20rem;
 }
 
 @media (max-width: 900px) {
@@ -79,7 +124,7 @@ nav ul {
   }
 
   nav ul {
-    background-color: rgba(92, 89, 89, 0.171);
+    background-color: rgba(129, 127, 127, 0.253);
     left: -100rem;
     flex-direction: column;
     width: 8rem;
@@ -96,5 +141,34 @@ nav ul {
 
   nav ul li {
     margin-top: 0.4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu {
+    width: 2rem;
+  }
+
+  .search input {
+    width: 7rem;
+    height: 1.4rem;
+    margin-right: 0.5rem;
+    border-radius: 0.4rem;
+  }
+
+  .btn {
+    /* padding-bottom: 1.5rem; */
+    /* padding-bottom: 1.5rem; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 1.4rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .search input {
+    width: 5.5rem;
   }
 }
