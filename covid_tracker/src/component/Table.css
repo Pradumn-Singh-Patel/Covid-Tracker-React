@@ -1,0 +1,38 @@
+.data {
+  margin-top: 3rem;
+}
+.table {
+  margin-top: 0.7rem;
+  overflow: scroll;
+  color: #6a5d5d;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  background-color: rgb(185, 185, 185);
+  height: 400px;
+}
+
+tr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.table td {
+  padding: 0.5rem;
+  border: none;
+}
+
+th {
+  padding: 0.5rem;
+}
+
+.table td img {
+  display: flex;
+  align-self: center;
+  width: 2rem;
+  height: 2rem;
+}
+
+.table tr:nth-of-type(odd) {
+  background-color: #f3f2f8;
+}
