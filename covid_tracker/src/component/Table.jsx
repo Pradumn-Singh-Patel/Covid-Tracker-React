@@ -3,6 +3,7 @@ import numeral from "numeral";
 import "./Table.css";
 
 function Table({ countries }) {
+  console.log("table run");
   return (
     <>
       <div className="data">
@@ -19,11 +20,11 @@ function Table({ countries }) {
           </tr>
           {countries.map((country) => (
             <tr>
-              <td>{country.country}</td>
+              <td className="country-name">{country.country}</td>
               <td>
                 <img src={country.countryInfo.flag} alt="flag" />{" "}
               </td>
-              <td>
+              <td className="case">
                 <strong>{numeral(country.cases).format("0,0")}</strong>
               </td>
             </tr>

@@ -3,16 +3,20 @@ import "./Main.css";
 import Menu from "../assets/Menu1.png";
 import Covid from "../assets/corona.jpg";
 import Table from "./Table";
+import Card from "./Card";
 
 function Main() {
   const [styles, setstyles] = useState("-100rem");
   const [TableData, setTableData] = useState([]);
+  const [get_data, setget_data] = useState(false);
+  const [input_val, setinput_val] = useState("");
   const [value, setvalue] = useState(window.innerWidth);
   window.onresize = displayWindowSize;
   window.onload = displayWindowSize;
   function displayWindowSize() {
     setvalue(window.innerWidth);
   }
+
   function clicked() {
     styles == "-100rem" || styles == !0 ? setstyles(0) : setstyles("-100rem");
   }
@@ -42,6 +46,12 @@ function Main() {
     getCountriesData();
   }, []);
 
+  function get_info() {
+    setget_data(true);
+  }
+
+  console.log("main run");
+
   return (
     <>
       <nav>
@@ -66,8 +76,16 @@ function Main() {
           </li>
         </ul>
         <div className="search">
-          <input type="text" placeholder="Country Name" />
-          <div className="btn">Search</div>
+          <input
+            type="text"
+            placeholder="Country Name"
+            onChange={(e) => {
+              setinput_val(e.target.value);
+            }}
+          />
+          <div className="btn" onClick={() => get_info()}>
+            Search
+          </div>
         </div>
       </nav>
       <div className="center">
@@ -93,6 +111,7 @@ function Main() {
         </div>
         <Table countries={TableData} />
       </div>
+      <Card get_data={get_data} input_val={input_val} key={get_data} />
     </>
   );
 }

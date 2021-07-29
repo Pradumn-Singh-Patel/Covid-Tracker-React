@@ -11,8 +11,7 @@ body {
   color: white;
 }
 
-a,
-.head {
+a {
   color: white;
   font-size: medium;
   font-weight: 500;
@@ -46,7 +45,8 @@ nav ul {
 
 .head {
   margin-left: 2rem;
-  font-size: larger;
+  font-size: 1.6rem;
+  font-weight: 500;
 }
 
 .head span {
@@ -54,7 +54,8 @@ nav ul {
 }
 
 .search input {
-  height: 1.6rem;
+  padding: 0.3rem;
+  height: 1.8rem;
   margin-right: 0.5rem;
   border-radius: 0.4rem;
 }
@@ -63,7 +64,7 @@ nav ul {
   border: 0.1rem rgb(219, 47, 47) solid;
   width: 5rem;
   border-radius: 0.4rem;
-  height: 1.6rem;
+  height: 1.8rem;
   text-align: center;
   cursor: pointer;
 }
@@ -87,13 +88,12 @@ nav ul {
   display: flex;
   flex-direction: column;
   margin-left: 2rem;
-  /* background-color: yellow; */
   justify-content: space-between;
   height: 21rem;
 }
 
 .info-1 {
-  background-color: rgba(129, 127, 127, 0.253);
+  background-color: rgba(129, 127, 127, 0.315);
   height: 2.3rem;
   width: 11rem;
   display: flex;
@@ -166,6 +166,13 @@ nav ul {
     width: 2rem;
   }
 
+  .head {
+    margin-left: 0.3rem;
+  }
+
+  .search {
+    margin-right: 0.3rem;
+  }
   .search input {
     width: 7rem;
     height: 1.4rem;
@@ -195,5 +202,9 @@ nav ul {
 @media (max-width: 450px) {
   .search input {
     width: 5.5rem;
+  }
+
+  .head {
+    font-size: 1.2rem;
   }
 }

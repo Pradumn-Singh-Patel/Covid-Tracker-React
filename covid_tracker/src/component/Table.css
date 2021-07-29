@@ -14,7 +14,7 @@
 tr {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .table td {
@@ -22,8 +22,19 @@ tr {
   border: none;
 }
 
+.country-name,
+.case {
+  width: 5rem;
+}
+
+.country-name {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
 th {
   padding: 0.5rem;
+  width: 5rem;
 }
 
 .table td img {
@@ -35,4 +46,14 @@ th {
 
 .table tr:nth-of-type(odd) {
   background-color: #f3f2f8;
+}
+
+@media (max-width: 500px) {
+  td strong {
+    font-size: 1rem;
+  }
+
+  .country-name {
+    font-size: 0.9rem;
+  }
 }
