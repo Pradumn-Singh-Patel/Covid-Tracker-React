@@ -4,6 +4,7 @@ import Menu from "../assets/Menu1.png";
 import Covid from "../assets/corona.jpg";
 import Table from "./Table";
 import Card from "./Card";
+import Cancel from "../assets/cancel.png";
 
 function Main() {
   const [styles, setstyles] = useState("-100rem");
@@ -62,6 +63,12 @@ function Main() {
         <img className="menu" src={Menu} alt="Menu" onClick={() => clicked()} />
 
         <ul style={{ left: styles }}>
+          <img
+            className="cancel"
+            src={Cancel}
+            alt="cancel"
+            onClick={() => clicked()}
+          />
           <li>
             <a href="#">Home</a>
           </li>

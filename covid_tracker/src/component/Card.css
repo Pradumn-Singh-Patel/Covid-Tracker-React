@@ -151,4 +151,11 @@ strong {
     padding-bottom: 0.8rem;
     font-size: 1.3rem;
   }
+
+  .blank-1,
+  .blank-2,
+  .blank-3 {
+    width: 100%;
+    height: 1.1vh;
+  }
 }
