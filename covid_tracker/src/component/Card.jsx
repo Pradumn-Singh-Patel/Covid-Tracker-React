@@ -4,22 +4,15 @@ import "./Card.css";
 
 function Card({ get_data, input_val }) {
   const [info, setinfo] = useState("");
-  // const [api, setapi] = useState("https://disease.sh/v3/covid-19/all");
-
-  //  if (get_data === true) {
-  //    setapi("https://disease.sh/v3/covid-19/countries/" + { input_val });
-  //  }
-
-  console.log(get_data);
-
-  // if (get_data === true) {
-  //   setapi("pradumn");
-  //     console.log(input_val);
-  // }
 
   useEffect(() => {
+    const url =
+      get_data === true && input_val
+        ? `https://disease.sh/v3/covid-19/countries/${input_val}`
+        : "https://disease.sh/v3/covid-19/all";
+
     const getCountriesData = async () => {
-      fetch("https://disease.sh/v3/covid-19/all")
+      fetch(url)
         .then((response) => response.json())
         .then((data) => {
           setinfo(data);
@@ -31,7 +24,10 @@ function Card({ get_data, input_val }) {
 
   return (
     <div className="boxes">
-      <h3>ENTIRE WORLD</h3>
+      <h2 className="coutry-name">
+        {input_val ? input_val : "ENTIRE WORLD"}
+        <i class="fas fa-arrow-right"></i>
+      </h2>
       <div className="cards">
         <div className="card-1">
           <div className="blank-1"></div>

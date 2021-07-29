@@ -73,6 +73,10 @@ nav ul {
   cursor: pointer;
 }
 
+.btn:active {
+  transform: scale(1.1);
+}
+
 .search {
   margin-right: 2rem;
 }
@@ -132,7 +136,7 @@ nav ul {
   justify-content: space-around;
 }
 
-@media (max-width: 910px) {
+@media (max-width: 950px) {
   .menu {
     display: block;
     cursor: pointer;

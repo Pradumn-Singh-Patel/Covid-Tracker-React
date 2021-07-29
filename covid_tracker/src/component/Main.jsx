@@ -51,8 +51,6 @@ function Main() {
     setget_data(true);
   }
 
-  console.log("main run");
-
   return (
     <>
       <nav>

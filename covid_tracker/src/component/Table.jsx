@@ -3,7 +3,6 @@ import numeral from "numeral";
 import "./Table.css";
 
 function Table({ countries }) {
-  console.log("table run");
   return (
     <>
       <div className="data">
