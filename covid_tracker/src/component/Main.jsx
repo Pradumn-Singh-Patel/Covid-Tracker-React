@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useEffect, useRef } from "react";
 import "./Main.css";
+import "./Card.css";
 import Menu from "../assets/Menu1.png";
 import Covid from "../assets/corona.jpg";
 import Table from "./Table";
@@ -10,9 +10,10 @@ import Cancel from "../assets/cancel.png";
 function Main() {
   const [styles, setstyles] = useState("-100rem");
   const [TableData, setTableData] = useState([]);
-  const [get_data, setget_data] = useState(false);
   const [input_val, setinput_val] = useState("");
+  const [url, seturl] = useState("https://disease.sh/v3/covid-19/all");
   const [value, setvalue] = useState(window.innerWidth);
+  const [info, setinfo] = useState("");
   window.onresize = displayWindowSize;
   window.onload = displayWindowSize;
   function displayWindowSize() {
@@ -48,9 +49,26 @@ function Main() {
     getCountriesData();
   }, []);
 
+  const card_ref = useRef();
+
   function get_info() {
-    get_data === false ? setget_data(true) : setget_data(false);
+    seturl(`https://disease.sh/v3/covid-19/countries/${input_val}`);
+    card_ref.current.scrollIntoView({ behavior: "smooth" });
   }
+
+  useEffect(() => {
+    console.log("effect chala");
+
+    const getCountriesData = async () => {
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          setinfo(data);
+        });
+    };
+
+    getCountriesData();
+  }, [url]);
 
   return (
     <>
@@ -89,6 +107,7 @@ function Main() {
               setinput_val(e.target.value);
             }}
           />
+
           <div className="btn" onClick={() => get_info()}>
             Search
           </div>
@@ -117,7 +136,35 @@ function Main() {
         </div>
         <Table countries={TableData} />
       </div>
-      <Card get_data={get_data} input_val={input_val} />
+      <div ref={card_ref} className="boxes">
+        <h2 className="coutry-name">
+          {input_val ? input_val : "ENTIRE WORLD"}
+          <i class="fas fa-arrow-right"></i>
+        </h2>
+        <div className="cards">
+          <Card
+            name="Cases"
+            className_1="card-1"
+            className_2="blank-1"
+            info_1={info.cases}
+            info_2={info.todayCases}
+          />
+          <Card
+            name="Recovered"
+            className_1="card-2"
+            className_2="blank-2"
+            info_1={info.recovered}
+            info_2={info.todayRecovered}
+          />
+          <Card
+            name="Deaths"
+            className_1="card-3"
+            className_2="blank-3"
+            info_1={info.deaths}
+            info_2={info.todayDeaths}
+          />
+        </div>
+      </div>
     </>
   );
 }
