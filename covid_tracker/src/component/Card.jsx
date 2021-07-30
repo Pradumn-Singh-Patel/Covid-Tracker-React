@@ -1,11 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import numeral from "numeral";
 import "./Card.css";
 
 function Card({ get_data, input_val }) {
   const [info, setinfo] = useState("");
 
+  const card_ref = useRef();
+
+  if (get_data === true) {
+    card_ref.current.scrollIntoView({ behavior: "smooth" });
+  }
+
   useEffect(() => {
+    console.log("effect chala");
     const url =
       get_data === true && input_val
         ? `https://disease.sh/v3/covid-19/countries/${input_val}`
@@ -20,10 +27,10 @@ function Card({ get_data, input_val }) {
     };
 
     getCountriesData();
-  }, []);
+  }, [get_data]);
 
   return (
-    <div className="boxes">
+    <div ref={card_ref} className="boxes">
       <h2 className="coutry-name">
         {input_val ? input_val : "ENTIRE WORLD"}
         <i class="fas fa-arrow-right"></i>

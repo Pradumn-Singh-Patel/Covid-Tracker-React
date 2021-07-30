@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import "./Main.css";
 import Menu from "../assets/Menu1.png";
 import Covid from "../assets/corona.jpg";
@@ -48,7 +49,7 @@ function Main() {
   }, []);
 
   function get_info() {
-    setget_data(true);
+    get_data === false ? setget_data(true) : setget_data(false);
   }
 
   return (
@@ -116,7 +117,7 @@ function Main() {
         </div>
         <Table countries={TableData} />
       </div>
-      <Card get_data={get_data} input_val={input_val} key={get_data} />
+      <Card get_data={get_data} input_val={input_val} />
     </>
   );
 }
