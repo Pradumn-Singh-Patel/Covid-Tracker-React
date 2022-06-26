@@ -47,18 +47,25 @@ function Main() {
     };
 
     getCountriesData();
-  }, []);
+  });
 
   const card_ref = useRef();
 
   function get_info() {
-    seturl(`https://disease.sh/v3/covid-19/countries/${input_val}`);
+    {
+      input_val
+        ? seturl(`https://disease.sh/v3/covid-19/countries/${input_val}`)
+        : seturl("https://disease.sh/v3/covid-19/all");
+    }
+    if (info.message) {
+      console.log(info);
+    } else {
+      console.log("info ni h");
+    }
     card_ref.current.scrollIntoView({ behavior: "smooth" });
   }
 
   useEffect(() => {
-    console.log("effect chala");
-
     const getCountriesData = async () => {
       fetch(url)
         .then((response) => response.json())
@@ -137,34 +144,43 @@ function Main() {
         <Table countries={TableData} />
       </div>
       <div ref={card_ref} className="boxes">
-        <h2 className="coutry-name">
-          {input_val ? input_val : "ENTIRE WORLD"}
-          <i class="fas fa-arrow-right"></i>
-        </h2>
-        <div className="cards">
-          <Card
-            name="Cases"
-            className_1="card-1"
-            className_2="blank-1"
-            info_1={info.cases}
-            info_2={info.todayCases}
-          />
-          <Card
-            name="Recovered"
-            className_1="card-2"
-            className_2="blank-2"
-            info_1={info.recovered}
-            info_2={info.todayRecovered}
-          />
-          <Card
-            name="Deaths"
-            className_1="card-3"
-            className_2="blank-3"
-            info_1={info.deaths}
-            info_2={info.todayDeaths}
-          />
-        </div>
+        {info.message ? (
+          <div className="e-card" style={{ backgroundColor: "red" }}>
+            <div>
+              <h3> {info.message} </h3>
+            </div>
+          </div>
+        ) : (
+          <>
+            <h2 className="coutry-name">
+              {input_val ? input_val : "ENTIRE WORLD"}
+              <i class="fas fa-arrow-right"></i>
+            </h2>
+            <Card
+              name="Cases"
+              className_1="card-1"
+              className_2="blank-1"
+              info_1={info.cases}
+              info_2={info.todayCases}
+            />
+            <Card
+              name="Recovered"
+              className_1="card-2"
+              className_2="blank-2"
+              info_1={info.recovered}
+              info_2={info.todayRecovered}
+            />
+            <Card
+              name="Deaths"
+              className_1="card-3"
+              className_2="blank-3"
+              info_1={info.deaths}
+              info_2={info.todayDeaths}
+            />
+          </>
+        )}
       </div>
+      {/* </div> */}
     </>
   );
 }

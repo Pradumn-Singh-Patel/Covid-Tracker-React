@@ -28,6 +28,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  margin-top: 2rem;
   width: 100%;
 }
 .card-1,
@@ -43,6 +44,16 @@
   height: 9rem;
   background-color: rgba(129, 127, 127, 0.315);
   margin-bottom: 2rem;
+}
+
+.e-card {
+  margin-bottom: 3%;
+  border-radius: 0.4rem;
+  width: 16rem;
+  height: 9rem;
+  text-align: center;
+  padding-top: 3%;
+  background-color: rgba(129, 127, 127, 0.315);
 }
 
 p {
