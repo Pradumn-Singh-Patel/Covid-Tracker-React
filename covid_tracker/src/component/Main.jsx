@@ -152,7 +152,7 @@ function Main() {
           </div>
         ) : (
           <>
-            <h2 className="coutry-name">
+            <h2 className="coutry-name" style={{ margin: "1.5rem" }}>
               {input_val ? input_val : "ENTIRE WORLD"}
               <i class="fas fa-arrow-right"></i>
             </h2>
@@ -180,7 +180,6 @@ function Main() {
           </>
         )}
       </div>
-      {/* </div> */}
     </>
   );
 }

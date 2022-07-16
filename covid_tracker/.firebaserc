@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "covid-tracker-1e43c"
-  }
+    "default": "tracker-cc657",
+    "tracker": "tracker-cc657"
+  },
+  "targets": {},
+  "etags": {}
 }
